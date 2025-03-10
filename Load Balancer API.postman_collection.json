@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "6c9733a1-7427-49f7-b542-0cfc8e21e16e",
+		"name": "Load Balancer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8579057"
+	},
+	"item": [
+		{
+			"name": "Register Backend Server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serverUrl\": \"http://localhost:8081\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/servers/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"servers",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Backend Server",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serverUrl\": \"http://localhost:8081\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/servers/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"servers",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Registered Servers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/servers/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"servers",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Load Balancing Strategy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"strategy\": \"randomselection\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/strategy/change",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"strategy",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current Load Balancing Strategy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/strategy/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"strategy",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forward Request to Backend Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/forward?path=/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"forward"
+					],
+					"query": [
+						{
+							"key": "path",
+							"value": "/data"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
