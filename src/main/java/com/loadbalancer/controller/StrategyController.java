@@ -21,7 +21,7 @@ public class StrategyController {
         this.strategies = new ConcurrentHashMap<>();
         // Populate the strategies map dynamically from Spring-managed beans
         for (LoadBalancingStrategy strategy : strategyList) {
-            String key = strategy.getClass().getSimpleName().replace("Strategy", "").toLowerCase();
+            String key = strategy.getClass().getSimpleName().toLowerCase();
             strategies.put(key, strategy);
         }
     }
@@ -32,7 +32,6 @@ public class StrategyController {
         if (strategyName == null || strategyName.isEmpty()) {
             return ResponseEntity.badRequest().body("Strategy name cannot be empty");
         }
-        strategyName = strategyName.toLowerCase();
         if (strategies.containsKey(strategyName)) {
             loadBalancer.setStrategy(strategies.get(strategyName));
             return ResponseEntity.ok("Strategy changed to: " + strategyName);
